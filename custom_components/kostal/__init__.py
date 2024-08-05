@@ -111,8 +111,8 @@ class KostalInstance:
         self, sensors: list[SENSOR_TYPE_KEY], piko: PikoHolder
     ) -> None:
         """Add async sensors to HASS."""
-        await self.hass.config_entries.async_forward_entry_setup(
-            self.config_entry, "sensor"
+        await self.hass.config_entries.async_forward_entry_setups(
+            self.config_entry, ["sensor"]
         )
         async_dispatcher_send(
             self.hass,
